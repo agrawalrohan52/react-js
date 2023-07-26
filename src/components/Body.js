@@ -16,7 +16,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
   return (
-    (
+    <>
       <div className="search-container">
         <input
           type="text"
@@ -37,8 +37,6 @@ const Body = () => {
           Search
         </button>
       </div>
-    ),
-    (
       <div className="restaurant-list">
         {restaurants.map((restaurant) => {
           return (
@@ -46,7 +44,7 @@ const Body = () => {
           );
         })}
       </div>
-    )
+    </>
   );
 };
 

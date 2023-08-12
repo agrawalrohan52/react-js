@@ -1,5 +1,6 @@
 // Logo component to display logo
 import FoodFireLogo from "./../images/FoodFireLogo.png";
+import { useState } from "react";
 
 const Logo = () => (
   <a href="/">
@@ -9,6 +10,7 @@ const Logo = () => (
 
 // Header component for header section: Logo, Nav Items
 const Header = () => {
+  const [isLoggedin, setIsLoggedin] = useState(true);
   return (
     <div className="header">
       <Logo />
@@ -19,6 +21,21 @@ const Header = () => {
           <li>Contact</li>
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
+          </li>
+          <li>
+            {/* use conditional rendering for login and logout */}
+            {isLoggedin ? (
+              <button
+                className="logout-btn"
+                onClick={() => setIsLoggedin(false)}
+              >
+                Logout
+              </button>
+            ) : (
+              <button className="login-btn" onClick={() => setIsLoggedin(true)}>
+                Login
+              </button>
+            )}
           </li>
         </ul>
       </div>
